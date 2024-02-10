@@ -4,6 +4,9 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import ListItems from './ListItems';
 import Stepper from './Stepper';
+import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
+import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
+import Box from '@mui/material/Box';
 
 export default function TemporaryDrawer() {
   const anchor = 'left';
@@ -28,6 +31,15 @@ export default function TemporaryDrawer() {
       >
         <Stepper />
         <ListItems />
+        <Box textAlign="center" >
+          <Button
+            variant="contained"
+            endIcon={<NorthEastOutlinedIcon />}
+            onClick={toggleDrawer(anchor, false)}
+          >
+            Let&apos;s Go!
+          </Button>
+        </Box>
       </Drawer>
     </React.Fragment>
   );

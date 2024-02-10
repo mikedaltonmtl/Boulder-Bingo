@@ -10,7 +10,7 @@ import Climbs from './Items/Climbs';
 export default function ListItems() {
   return (
     <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+      sx={{ width: '100%', bgcolor: 'background.paper' }}
     >
       <Challenges />
       <Divider />
@@ -21,7 +21,6 @@ export default function ListItems() {
       <Exercises />
       <Divider />
       <Climbs />
-      <Divider />
     </List>
   );
 }

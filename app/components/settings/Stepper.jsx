@@ -8,7 +8,7 @@ const steps = ['Select Challenges', 'Go Climb!'];
 
 export default function Stepper() {
   return (
-    <Box sx={{ width: '95%', mt: 2, mx: 1 }}>
+    <Box sx={{ width: '95%', my: 2, mx: 1 }}>
       <MuiStepper activeStep={0}>
         {steps.map(label => {
           const stepProps = {};

@@ -7,18 +7,6 @@ import Slider from '@mui/material/Slider';
 
 import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
 
-// const marks = [
-//   { value: 1, label: 'Intro' },
-//   { value: 2, label: '1' },
-//   { value: 3, label: '2.1' },
-//   { value: 4, label: '2.2' },
-//   { value: 5, label: '2.3' },
-//   { value: 6, label: '3.1' },
-//   { value: 7, label: '3.2' },
-//   { value: 8, label: '3.3' },
-//   { value: 9, label: '4.1' },
-//   { value: 10, label: '4.2' }
-// ];
 
 const marks = [
   { value: 1, label: 'Intro' },
@@ -49,33 +37,37 @@ const convertValueToLabel = function(value) {
 };
 
 export default function Climbs() {
-  const [climbRange, setClimbRange] = useState([1, 5]);
+  const [climbRange, setClimbRange] = useState([2, 5]);
 
   const handleChange = (event, newValue) => {
     setClimbRange(newValue);
   };
 
   return (
-    <ListItem key='climbs'>
-      <ListItemIcon>
-        <SportsHandballOutlinedIcon color='secondary' />
-      </ListItemIcon>
-      <ListItemText primary="Difficulty" />
-      <Box sx={{ width: 250 }}>
-        <Slider
-          getAriaLabel={() => 'Climb range'}
-          value={climbRange}
-          onChange={handleChange}
-          valueLabelDisplay="auto"
-          disableSwap
-          color="primary"
-          min={1}
-          max={10}
-          step={1}
-          marks={marks}
-          valueLabelFormat={value => convertValueToLabel(value)}
-        />
-      </Box>
-    </ListItem>
+    <>
+      <ListItem key='climbsLabel' sx={{ paddingBottom: 0 }} >
+        <ListItemIcon>
+          <SportsHandballOutlinedIcon color='secondary' />
+        </ListItemIcon>
+        <ListItemText primary="Difficulty" />
+      </ListItem>
+      <ListItem key='climbs'>
+        <Box sx={{ width: 300, paddingLeft: 4, paddingTop: 0 }} >
+          <Slider
+            getAriaLabel={() => 'Climb range'}
+            value={climbRange}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            disableSwap
+            color="primary"
+            min={1}
+            max={10}
+            step={1}
+            marks={marks}
+            valueLabelFormat={value => convertValueToLabel(value)}
+          />
+        </Box>
+      </ListItem>
+    </>
   );
 }
