@@ -27,7 +27,7 @@ export default function Challenges() {
       <ListItemIcon>
         <AssignmentTurnedInOutlinedIcon color='primary' />
       </ListItemIcon>
-      <ListItemText primary="Number of Challenges" />
+      <ListItemText primary="Challenges" />
       <Box sx={{ width: 150 }}>
         <Slider
           aria-label="Challenges"
