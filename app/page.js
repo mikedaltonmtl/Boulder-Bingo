@@ -11,14 +11,18 @@ export default function Home() {
 
   const [state, setState] = React.useState({ left: true });
 
+  /////////////////////////////////////////////////////////////////////////////////
+  // test redux!
   const challengesSelected = useSelector(state => state.settingsReducer.value.nbTasks);
   const colours = useSelector(state => state.settingsReducer.value.colours);
-
   const colourState = [];
   for (const [key, value] of Object.entries(colours)) {
-    console.log(`${key}: ${value}`);
-    colourState.push(`${key}: ${value} ---`);
+    colourState.push(`${key}: ${value} - `);
   }
+  const intros = useSelector(state => state.settingsReducer.value.intros) ? 'yes' : 'no';
+  
+  /////////////////////////////////////////////////////////////////////////////////
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -37,7 +41,8 @@ export default function Home() {
       <Button variant="outlined" onClick={toggleDrawer("left", true)}>settings</Button>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer} />
       <Typography variant="body1" gutterBottom>challengesSelected: {challengesSelected}</Typography>
-      {colourState}
+      <p>{colourState}</p>
+      <p>intros? {intros}</p>
     </React.Fragment>
   );
 }

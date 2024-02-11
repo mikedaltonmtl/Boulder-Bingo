@@ -30,16 +30,19 @@ export const settingsSlice = createSlice({
       state.value.nbTasks = action.payload;
     },
     setColours: (state, action) => {
-      // if (state.value.colours[action.payload]) {
-
-      // } = !state.value.colours[action.payload];
+      state.value.colours = action.payload;
     },
+    setIntros: (state, action) => {
+      state.value.intros = action.payload;
+    },
+
   }
 });
 
 export const {
   setNbTasks,
   setColours,
+  setIntros,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

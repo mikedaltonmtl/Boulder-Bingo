@@ -11,8 +11,8 @@ import { setNbTasks } from '@/redux/features/setting-slice';
 
 
 export default function Challenges() {
-  const dispatch = useDispatch();
   const challengesSelected = useSelector((state) => state.settingsReducer.value.nbTasks);
+  const dispatch = useDispatch();
 
   const handleChange = (event, newAlignment) => {
     dispatch(setNbTasks(newAlignment));

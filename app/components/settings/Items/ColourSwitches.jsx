@@ -6,6 +6,9 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
+import { useSelector, useDispatch} from 'react-redux';
+import { setColours } from '@/redux/features/setting-slice';
+
 import { alpha, styled } from '@mui/material/styles';
 import { red, yellow, grey } from '@mui/material/colors';
 
@@ -45,27 +48,21 @@ const BlackSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-const initialState = {
-  purple: true,
-  white:  true,
-  blue:   true,
-  red:    true,
-  yellow: true,
-  black:  true
-};
-
 export default function ColourSwitches() {
-  const [colours, setColours] = React.useState(initialState);
+  const colours = useSelector(state => state.settingsReducer.value.colours);
+  const dispatch = useDispatch();
 
   const handleToggle = function() {
-    setColours({
-      ...colours,
-      [event.target.name]: event.target.checked
-    });
+    dispatch(
+      setColours({
+        ...colours,
+        [event.target.name]: event.target.checked
+      })
+    );
   };
 
   return (
-    <List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper', padding: 0 }} >
+    <List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper', padding: 0 }}>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container rowSpacing={0} columnSpacing={6} >
           <Grid item xs={6}>
