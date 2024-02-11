@@ -7,11 +7,16 @@ import ListItemText from '@mui/material/ListItemText';
 
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 
+import { useSelector, useDispatch} from 'react-redux';
+import { setNbTasks } from '@/redux/features/setting-slice';
+
+
 export default function Challenges() {
-  const [alignment, setAlignment] = React.useState('12');
+  const dispatch = useDispatch();
+  const challengesSelected = useSelector((state) => state.settingsReducer.value.nbTasks);
 
   const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
+    dispatch(setNbTasks(newAlignment));
   };
 
   return (
@@ -22,17 +27,16 @@ export default function Challenges() {
       <ListItemText primary="Challenges" />
       <ToggleButtonGroup
         color="primary"
-        value={alignment}
+        value={challengesSelected}
         exclusive
         onChange={handleChange}
         aria-label="Platform"
         sx={{ paddingRight: 1 }}
       >
-        <ToggleButton sx={{ width: 50 }} value="8">8</ToggleButton>
-        <ToggleButton sx={{ width: 50 }} value="12">12</ToggleButton>
-        <ToggleButton sx={{ width: 50 }} value="16">16</ToggleButton>
+        <ToggleButton sx={{ width: 50 }} value={8}>8</ToggleButton>
+        <ToggleButton sx={{ width: 50 }} value={12}>12</ToggleButton>
+        <ToggleButton sx={{ width: 50 }} value={16}>16</ToggleButton>
       </ToggleButtonGroup>
     </ListItem>
-
   );
 }
