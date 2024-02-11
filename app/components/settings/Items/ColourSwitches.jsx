@@ -1,4 +1,4 @@
-// import * as React from 'react';
+import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -8,7 +8,6 @@ import Grid from '@mui/material/Grid';
 
 import { alpha, styled } from '@mui/material/styles';
 import { red, yellow, grey } from '@mui/material/colors';
-
 
 const RedSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-switchBase.Mui-checked': {
@@ -46,22 +45,24 @@ const BlackSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+const initialState = {
+  purple: true,
+  white:  true,
+  blue:   true,
+  red:    true,
+  yellow: true,
+  black:  true
+};
 
 export default function ColourSwitches() {
-  // const [checked, setChecked] = React.useState(['wifi']);
+  const [colours, setColours] = React.useState(initialState);
 
-  // const handleToggle = (value) => () => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
-
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-
-  //   setChecked(newChecked);
-  // };
+  const handleToggle = function() {
+    setColours({
+      ...colours,
+      [event.target.name]: event.target.checked
+    });
+  };
 
   return (
     <List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper', padding: 0 }} >
@@ -72,11 +73,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-purple" primary="Purple" />
               <Switch
                 edge="end"
-                defaultChecked
                 color="secondary"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-purple',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.purple}
+                name="purple"
               />
             </ListItem>
           </Grid>
@@ -85,11 +89,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-white" primary="White" />
               <Switch
                 edge="end"
-                defaultChecked
                 color="default"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-white',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.white}
+                name="white"
               />
             </ListItem>
           </Grid>
@@ -98,11 +105,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-blue" primary="Blue" />
               <Switch
                 edge="end"
-                defaultChecked
                 color="primary"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-blue',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.blue}
+                name="blue"
               />
             </ListItem>
           </Grid>
@@ -111,11 +121,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-red" primary="Red" />
               <RedSwitch
                 edge="end"
-                defaultChecked
                 color="error"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-red',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.red}
+                name="red"
               />
             </ListItem>
           </Grid>
@@ -124,11 +137,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-yellow" primary="Yellow" />
               <YellowSwitch
                 edge="end"
-                defaultChecked
                 color="error"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-yellow',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.yellow}
+                name="yellow"
               />
             </ListItem>
           </Grid>
@@ -137,11 +153,14 @@ export default function ColourSwitches() {
               <ListItemText id="switch-list-label-black" primary="Black" />
               <BlackSwitch
                 edge="end"
-                defaultChecked
                 color="error"
                 inputProps={{
                   'aria-labelledby': 'switch-list-label-black',
+                  'aria-label': 'controlled'
                 }}
+                onChange={handleToggle}
+                checked={colours.black}
+                name="black"
               />
             </ListItem>
           </Grid>
@@ -150,34 +169,3 @@ export default function ColourSwitches() {
     </List>
   );
 }
-
-/* Example
-<ListItem>
-  <ListItemIcon>
-    <BluetoothIcon />
-  </ListItemIcon>
-  <ListItemText id="switch-list-label-bluetooth" primary="Bluetooth" />
-  <Switch
-    edge="end"
-    onChange={handleToggle('bluetooth')}
-    checked={checked.indexOf('bluetooth') !== -1}
-    inputProps={{
-      'aria-labelledby': 'switch-list-label-bluetooth',
-    }}
-  />
-</ListItem>
-*/
-
-/* Original
-  <FormControlLabel
-    control={
-      <Switch
-        {...label}
-        defaultChecked
-        color="secondary"
-      />
-    }
-    label="purple"
-    labelPlacement="start"
-  />
-*/

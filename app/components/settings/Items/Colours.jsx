@@ -3,6 +3,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+
 import ColourSwitches from './ColourSwitches';
 
 export default function Colours() {
