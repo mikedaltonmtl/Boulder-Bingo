@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
@@ -7,6 +6,8 @@ import Slider from '@mui/material/Slider';
 
 import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
 
+import { useSelector, useDispatch} from 'react-redux';
+import { setClimbRange } from '@/redux/features/setting-slice';
 
 const marks = [
   { value: 1, label: 'Intro' },
@@ -37,10 +38,11 @@ const convertValueToLabel = function(value) {
 };
 
 export default function Climbs() {
-  const [climbRange, setClimbRange] = useState([2, 5]);
+  const climbRange = useSelector(state => state.settingsReducer.value.climbRange);
+  const dispatch = useDispatch();
 
   const handleChange = (event, newValue) => {
-    setClimbRange(newValue);
+    dispatch(setClimbRange(newValue));
   };
 
   return (

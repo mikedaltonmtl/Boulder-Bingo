@@ -20,8 +20,17 @@ export default function Home() {
     colourState.push(`${key}: ${value} - `);
   }
   const intros = useSelector(state => state.settingsReducer.value.intros) ? 'yes' : 'no';
-  
+  const exercises = useSelector(state => state.settingsReducer.value.exercises);
+  const exerciseState = [];
+  for (const [key, value] of Object.entries(exercises)) {
+    exerciseState.push(`${key}: ${value} - `);
+  }
+  const climbRangeSelected = useSelector(state => state.settingsReducer.value.climbRange);
   /////////////////////////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////////////////////
+  // build card array
+  
 
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -43,6 +52,8 @@ export default function Home() {
       <Typography variant="body1" gutterBottom>challengesSelected: {challengesSelected}</Typography>
       <p>{colourState}</p>
       <p>intros? {intros}</p>
+      <p>{exerciseState}</p>
+      <p>range from {climbRangeSelected[0]} to {climbRangeSelected[1]}</p>
     </React.Fragment>
   );
 }

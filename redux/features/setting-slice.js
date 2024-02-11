@@ -9,14 +9,14 @@ const initialState = {
       blue:   true,
       red:    true,
       yellow: true,
-      black:  true
+      black:  true,
     },
     intros: true,
     exercises: {
       pullUp: true,
       pushUp: true,
       squat:  true,
-      jack:   true
+      jack:   true,
     },
     climbRange: [1, 5]
   }
@@ -35,7 +35,12 @@ export const settingsSlice = createSlice({
     setIntros: (state, action) => {
       state.value.intros = action.payload;
     },
-
+    setExercises: (state, action) => {
+      state.value.exercises = action.payload;
+    },
+    setClimbRange: (state, action) => {
+      state.value.climbRange = action.payload;
+    },
   }
 });
 
@@ -43,6 +48,8 @@ export const {
   setNbTasks,
   setColours,
   setIntros,
+  setExercises,
+  setClimbRange,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;
