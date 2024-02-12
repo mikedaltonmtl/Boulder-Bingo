@@ -1,3 +1,5 @@
+import { convertValueToLabel } from './conversions';
+
 const randomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -28,6 +30,7 @@ const setEmptiesArray = function(nbTasks) {
  * Lastly, we'll add any empty tasks that we need to fill the grid, and return it.
  */
 const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
+  console.log('climbRange', climbRange);
 
   const taskArray = [];
 
@@ -48,16 +51,20 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
   /////////////////////////////////////////////////////////////////
 
   // If we already have enough tasks, add 5 climbs by default
-  if (taskArray.length >= nbTasks) {
+  if (taskArray.length >= nbTasks - 5) {
     for (let i = 0; i < 5; i++) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
-      taskArray.push({ content: difficulty, type: 'climb' });
+      const climbName = convertValueToLabel(difficulty);
+      const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
+      taskArray.push({ content: climbContent, type: 'climb' });
     }
   // else fill the remaining tasks with climbs
   } else {
     while (taskArray.length < nbTasks) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
-      taskArray.push({ content: difficulty, type: 'climb' });
+      const climbName = convertValueToLabel(difficulty);
+      const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
+      taskArray.push({ content: climbContent, type: 'climb' });
     }
   }
 

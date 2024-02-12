@@ -1,9 +1,11 @@
 'use client';
 import * as React from 'react';
-
 import Button from '@mui/material/Button';
-import Typography from "@mui/material/Typography";
-import TemporaryDrawer from "./components/settings/TemporaryDrawer";
+import Typography from '@mui/material/Typography';
+import TemporaryDrawer from './components/settings/TemporaryDrawer';
+
+import { cleanData } from './helpers/conversions';
+import { setCardArray } from './helpers/setCardArray';
 
 import { useSelector } from 'react-redux';
 
@@ -30,7 +32,27 @@ export default function Home() {
 
   /////////////////////////////////////////////////////////////////////////////////
   // build card array
-  
+  // const setCardArray = function(nbTasks, colours, intros, exercises, climbRange)
+  // nbTasks: number - ok
+  // colours: array of names to include - objectToArray(colours) - ok
+  // intros: boolean - ok
+  // exercises: array of names to include - ok
+  // climbRange: array [min, max] - ok
+
+  // console.log('nbTasks', challengesSelected, typeof challengesSelected);
+  // console.log('colours', objectToArray(colours));
+  // const introTest = useSelector(state => state.settingsReducer.value.intros);
+  // console.log('intros', introTest, typeof introTest);
+  // console.log('exercises', objectToArray(exercises));
+  // console.log('climbRange', climbRangeSelected);
+  const cardArray = setCardArray(
+    useSelector(state => state.settingsReducer.value.nbTasks),
+    cleanData(useSelector(state => state.settingsReducer.value.colours), 'colour'),
+    useSelector(state => state.settingsReducer.value.intros),
+    cleanData(useSelector(state => state.settingsReducer.value.exercises), 'exercise'),
+    useSelector(state => state.settingsReducer.value.climbRange),
+  );
+  console.log('cardArray', cardArray);
 
 
   const toggleDrawer = (anchor, open) => (event) => {

@@ -9,13 +9,7 @@ import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined
 
 import { useSelector, useDispatch} from 'react-redux';
 import { setExercises } from '@/redux/features/setting-slice';
-
-const exerciseArray = [
-  { label: 'Pull-ups', name: 'pullUp'},
-  { label: 'Push-ups', name: 'pushUp'},
-  { label: 'Squats', name: 'squat'},
-  { label: 'Jumping jacks', name: 'jack'},
-];
+import { exerciseArray } from '@/app/helpers/conversions';
 
 export default function Exercises() {
   const exercises = useSelector(state => state.settingsReducer.value.exercises);
