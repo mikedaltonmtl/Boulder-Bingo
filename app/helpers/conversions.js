@@ -34,7 +34,7 @@ const cleanData = function(object, type) {
     for (const [key, value] of Object.entries(object)) {
       if (value) {
         const capitalizedColour = key[0].toUpperCase() + key.slice(1);
-        array.push({ content: `${capitalizedColour} climb`, type: 'colour' });
+        array.push({ content: `${capitalizedColour} climb`, type: 'colour', isComplete: false });
       }
     }
   }
@@ -42,7 +42,7 @@ const cleanData = function(object, type) {
   if (type === 'exercise') {
     for (const [key, value] of Object.entries(object)) {
       if (value) {
-        array.push({ content: exerciseConversions[key], type: 'exercise' });
+        array.push({ content: exerciseConversions[key], type: 'exercise', isComplete: false });
       }
     }
   }

@@ -30,8 +30,6 @@ const setEmptiesArray = function(nbTasks) {
  * Lastly, we'll add any empty tasks that we need to fill the grid, and return it.
  */
 const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
-  console.log('climbRange', climbRange);
-
   const taskArray = [];
 
   if (colours.length > 0) {
@@ -39,7 +37,7 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
   }
 
   if (intros) {
-    taskArray.push({ content: 'All the intros', type: 'intros' });
+    taskArray.push({ content: 'All the intros', type: 'intros', isComplete: false });
   }
 
   if (exercises.length > 0) {
@@ -56,7 +54,7 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
       const climbName = convertValueToLabel(difficulty);
       const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
-      taskArray.push({ content: climbContent, type: 'climb' });
+      taskArray.push({ content: climbContent, type: 'climb', isComplete: false });
     }
   // else fill the remaining tasks with climbs
   } else {
@@ -64,7 +62,7 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
       const climbName = convertValueToLabel(difficulty);
       const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
-      taskArray.push({ content: climbContent, type: 'climb' });
+      taskArray.push({ content: climbContent, type: 'climb', isComplete: false });
     }
   }
 
@@ -77,10 +75,10 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
   // Trim the taskArray if it's longer than the number of tasks required
   const cardArray = taskArray.slice(0, nbTasks);
 
-  // If we need empties, add them
+  // If we need empties, add them (in the spaces declared in setEmptiesArray)
   if (nbTasks < 16) {
     const emptiesArray = setEmptiesArray(nbTasks);
-    emptiesArray.forEach(emptyIndex => cardArray.splice(emptyIndex, 0, { content: '', type: 'empty' }));
+    emptiesArray.forEach(emptyIndex => cardArray.splice(emptyIndex, 0, { content: '', type: 'empty', isComplete: true }));
   }
 
   return cardArray;

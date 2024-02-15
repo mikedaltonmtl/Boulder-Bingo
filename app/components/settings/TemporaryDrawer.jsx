@@ -8,7 +8,6 @@ import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 import Box from '@mui/material/Box';
 
 export default function TemporaryDrawer({ state, toggleDrawer }) {
-
   return (
     <Drawer
       PaperProps={{ sx: { width: "80%" } }}
@@ -24,7 +23,7 @@ export default function TemporaryDrawer({ state, toggleDrawer }) {
           endIcon={<NorthEastOutlinedIcon />}
           onClick={toggleDrawer("left", false)}
         >
-      Let&apos;s Go!
+          Let&apos;s Go!
         </Button>
       </Box>
     </Drawer>
