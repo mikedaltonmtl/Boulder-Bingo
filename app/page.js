@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import BingoCard from './components/game/BingoCard';
@@ -9,6 +8,7 @@ import Stepper from './components/settings/Stepper';
 
 import { useDispatch} from 'react-redux';
 import { setCard } from '@/redux/features/setting-slice';
+import NavBar from './components/game/NavBar';
 
 
 export default function Home() {
@@ -34,6 +34,7 @@ export default function Home() {
       <Button variant="outlined" onClick={toggleDrawer("left", true)}>settings</Button>
       <Button variant="outlined" onClick={toggleDrawer("left", false)}>refresh</Button>
       <BingoCard/>
+      <NavBar/>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
     </React.Fragment>
   );

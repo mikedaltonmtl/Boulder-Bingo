@@ -15,11 +15,11 @@ export default function Challenge({ info }) {
   };
 
   const cardStyle = {
-    opacity: isComplete ? 0.2 : 1,
     height: '100%',
     display: 'flex', // Add flexbox for icon/text arrangement
     flexDirection: 'column', // Align items vertically
-    backgroundColor: '#f5f5f5',
+    justifyContent: 'start',
+    alignItems: 'start',
     position: 'relative', // Add for X positioning
   };
   
@@ -43,17 +43,17 @@ export default function Challenge({ info }) {
   };
 
   return (
-    <Card sx={{ height: '100%', boxShadow: 2, position: 'relative' }}>
-      <CardActionArea onClick={handleClick} style={cardStyle}>
-        <CardContent>
-          <Box mb={1}>
-            {getIcon()}
-          </Box>
-          <Typography variant="body2">
-            {info.content} ({info.type})
-          </Typography>
-        </CardContent>
-        { isComplete && info.type !== 'empty' && (
+    <Card sx={{ height: '120px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
+      { info.type !== 'empty' && (
+        <CardActionArea onClick={handleClick} style={cardStyle}>
+          <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>
+            <Box mb={1}>
+              {getIcon()}
+            </Box>
+            <Typography variant="body2">
+              {info.content}
+            </Typography>
+          </CardContent>
           <Box
             sx={{
               position: 'absolute',
@@ -64,14 +64,17 @@ export default function Challenge({ info }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 100, // Adjust X size as needed
+              fontSize: 150, // Adjust X size as needed
+              fontWeight: 'bold',
               color: 'red',
+              opacity: isComplete ? 1 : 0,
+              transition: 'opacity 1s ease',
             }}
           >
             X
           </Box>
-        )}
-      </CardActionArea>
+        </CardActionArea>
+      )}
     </Card>
   );
 }

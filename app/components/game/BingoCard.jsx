@@ -10,8 +10,6 @@ export default function BingoCard() {
   const [hydrated, setHydrated] = React.useState(false);
   const card = useSelector(state => state.settingsReducer.value.card);
 
-  console.log('bingo card', card);
-
   React.useEffect(() => {
     setHydrated(true);
   },[]);
