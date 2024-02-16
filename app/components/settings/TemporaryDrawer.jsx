@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 export default function TemporaryDrawer({ state, toggleDrawer }) {
   return (
     <Drawer
-      PaperProps={{ sx: { width: "80%" } }}
+      PaperProps={{ sx: { width: "100%" } }}
       anchor="left"
       open={state.left}
       onClose={toggleDrawer("left", false)}

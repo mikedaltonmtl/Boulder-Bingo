@@ -1,25 +1,3 @@
-/*
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-
-export default function Challenge({ info }) {
-  return (
-    <Card sx={{height: "100%", display: "flex", alignItems: "center"}}>
-      <CardContent>
-        <Typography variant="body2">
-          {info.content}
-          <br />
-          {info.type}
-          <br />
-          {info.isComplete && 'done'}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-}
-*/
-
 import * as React from 'react';
 import { Typography, Card, CardContent, CardActionArea, Box } from '@mui/material';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
@@ -60,15 +38,15 @@ export default function Challenge({ info }) {
     case 'climb':
       return <SportsHandballOutlinedIcon style={{ color: 'purple' }} />;
     default:
-      return null; // No icon for other types or 'empty'
+      return null;
     }
   };
 
   return (
-    <Card sx={{ height: '100%', boxShadow: 2 }}>
+    <Card sx={{ height: '100%', boxShadow: 2, position: 'relative' }}>
       <CardActionArea onClick={handleClick} style={cardStyle}>
         <CardContent>
-          <Box mb={1}> {/* Add spacing before text */}
+          <Box mb={1}>
             {getIcon()}
           </Box>
           <Typography variant="body2">
@@ -86,7 +64,7 @@ export default function Challenge({ info }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 50, // Adjust X size as needed
+              fontSize: 100, // Adjust X size as needed
               color: 'red',
             }}
           >
