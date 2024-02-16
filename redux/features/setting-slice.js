@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setCardArray } from '@/app/helpers/setCardArray';
+import { setCardArray, reinitializeCard } from '@/app/helpers/setCardArray';
 import { cleanData } from '@/app/helpers/conversions';
 
 const initialState = {
@@ -73,8 +73,9 @@ export const settingsSlice = createSlice({
       );
       state.value.id += 16;
     },
-    setId: (state, action) => {
-      state.value.id = action.payload;
+    restartCard: (state) => {
+      const initialCard = reinitializeCard(state.value.card);
+      state.value.card = initialCard;
     },
   }
 });
@@ -86,7 +87,7 @@ export const {
   setExercises,
   setClimbRange,
   setCard,
-  setId,
+  restartCard,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

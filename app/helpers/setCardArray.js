@@ -17,6 +17,11 @@ const setEmptiesArray = function(nbTasks) {
   return [];
 };
 
+// Reset all tasks 'isComplete' value to false, except for empties
+const reinitializeCard = function(cardArray) {
+  return cardArray.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
+};
+
 /**
  * We need to return an array containing the number of tasks demanded,
  * plus any empty tasks to ensure that the card is square.
@@ -90,4 +95,4 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange, l
   return cardArray;
 };
 
-module.exports = { setCardArray };
+module.exports = { setCardArray, reinitializeCard };

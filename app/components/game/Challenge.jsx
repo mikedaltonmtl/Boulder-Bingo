@@ -16,8 +16,8 @@ export default function Challenge({ info }) {
 
   const cardStyle = {
     height: '100%',
-    display: 'flex', // Add flexbox for icon/text arrangement
-    flexDirection: 'column', // Align items vertically
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'start',
     alignItems: 'start',
     position: 'relative', // Add for X positioning
