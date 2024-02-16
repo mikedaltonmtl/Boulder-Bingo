@@ -43,7 +43,7 @@ export default function Challenge({ info }) {
   };
 
   return (
-    <Card sx={{ height: '120px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
+    <Card sx={{ height: '100%', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
       { info.type !== 'empty' && (
         <CardActionArea onClick={handleClick} style={cardStyle}>
           <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>

@@ -14,9 +14,13 @@ import { setCard, restartCard } from '@/redux/features/setting-slice';
 export default function Home() {
   const [state, setState] = React.useState({ left: true });
   const card = useSelector(state => state.settingsReducer.value.card);
+
   const dispatch = useDispatch();
   const handleReset = function() {
-    dispatch(restartCard());
+    const cardCopy = [...card];
+    // Reset all tasks 'isComplete' value to false, except for empties
+    const resetCard = cardCopy.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
+    dispatch(restartCard([...resetCard]));
   };
 
   const toggleDrawer = (anchor, open) => (event) => {

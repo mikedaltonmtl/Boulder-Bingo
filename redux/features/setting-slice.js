@@ -73,9 +73,12 @@ export const settingsSlice = createSlice({
       );
       state.value.id += 16;
     },
-    restartCard: (state) => {
-      const initialCard = reinitializeCard(state.value.card);
-      state.value.card = initialCard;
+    // restartCard: (state) => {
+    //   const initialCard = reinitializeCard(state.value.card);
+    //   state.value.card = initialCard;
+    // },
+    restartCard: (state, action) => {
+      state.value.card = action.payload;
     },
   }
 });
