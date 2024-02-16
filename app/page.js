@@ -20,8 +20,9 @@ export default function Home() {
     }
 
     setState({ ...state, [anchor]: open });
-    
+
     if (!open) {
+      console.log('generate card from page toggle');
       dispatch(setCard());
     }
   };

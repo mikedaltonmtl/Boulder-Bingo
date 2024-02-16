@@ -27,9 +27,10 @@ const setEmptiesArray = function(nbTasks) {
  * Next, we'll randomize the order of the array.
  * If we have too many elements, we'll cut the array.
  *
- * Lastly, we'll add any empty tasks that we need to fill the grid, and return it.
+ * Lastly, we'll add any empty tasks that we need to fill the grid,
+ * give each element an id, and return the array.
  */
-const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
+const setCardArray = function(nbTasks, colours, intros, exercises, climbRange, lastId) {
   const taskArray = [];
 
   if (colours.length > 0) {
@@ -79,6 +80,11 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange) {
   if (nbTasks < 16) {
     const emptiesArray = setEmptiesArray(nbTasks);
     emptiesArray.forEach(emptyIndex => cardArray.splice(emptyIndex, 0, { content: '', type: 'empty', isComplete: true }));
+  }
+
+  // Give each task an id
+  for (let i = 0; i < 16; i++) {
+    cardArray[i] = { ...cardArray[i], id: lastId + 1 + i };
   }
 
   return cardArray;

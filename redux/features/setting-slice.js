@@ -22,23 +22,24 @@ const initialState = {
     },
     climbRange: [1, 5],
     card: [
-      {content: '10 Push-ups', type: 'exercise', isComplete: false},
-      {content: 'Black climb', type: 'colour', isComplete: false},
-      {content: '', type: 'empty', isComplete: true},
-      {content: 'C2.2', type: 'climb', isComplete: false},
-      {content: 'Purple climb', type: 'colour', isComplete: false},
-      {content: 'Intro', type: 'climb', isComplete: false},
-      {content: 'All the intros', type: 'intros', isComplete: false},
-      {content: '', type: 'empty', isComplete: true},
-      {content: '', type: 'empty', isComplete: true},
-      {content: 'C1', type: 'climb', isComplete: false},
-      {content: 'Yellow climb', type: 'colour', isComplete: false},
-      {content: 'Red climb', type: 'colour', isComplete: false},
-      {content: '5 Pull-ups', type: 'exercise', isComplete: false},
-      {content: '', type: 'empty', isComplete: true},
-      {content: 'White climb', type: 'colour', isComplete: false},
-      {content: 'Intro', type: 'climb', isComplete: false},
+      { content: '10 Push-ups', type: 'exercise', isComplete: false, id: 1 },
+      { content: 'Black climb', type: 'colour', isComplete: false, id: 2 },
+      { content: '', type: 'empty', isComplete: true, id: 3 },
+      { content: 'C2.2', type: 'climb', isComplete: false, id: 4 },
+      { content: 'Purple climb', type: 'colour', isComplete: false, id: 5 },
+      { content: 'Intro', type: 'climb', isComplete: false, id: 6 },
+      { content: 'All the intros', type: 'intros', isComplete: false, id: 7 },
+      { content: '', type: 'empty', isComplete: true, id: 8 },
+      { content: '', type: 'empty', isComplete: true, id: 9 },
+      { content: 'C1', type: 'climb', isComplete: false, id: 10 },
+      { content: 'Yellow climb', type: 'colour', isComplete: false, id: 11 },
+      { content: 'Red climb', type: 'colour', isComplete: false, id: 12 },
+      { content: '5 Pull-ups', type: 'exercise', isComplete: false, id: 13 },
+      { content: '', type: 'empty', isComplete: true, id: 14 },
+      { content: 'White climb', type: 'colour', isComplete: false, id: 15 },
+      { content: 'Intro', type: 'climb', isComplete: false, id: 16 },
     ],
+    id: 16,
   }
 };
 
@@ -61,14 +62,19 @@ export const settingsSlice = createSlice({
     setClimbRange: (state, action) => {
       state.value.climbRange = action.payload;
     },
-    setCard: (state, action) => {
+    setCard: (state) => {
       state.value.card = setCardArray(
         state.value.nbTasks,
         cleanData(state.value.colours, 'colour'),
         state.value.intros,
         cleanData(state.value.exercises, 'exercise'),
         state.value.climbRange,
+        state.value.id,
       );
+      state.value.id += 16;
+    },
+    setId: (state, action) => {
+      state.value.id = action.payload;
     },
   }
 });
@@ -80,6 +86,7 @@ export const {
   setExercises,
   setClimbRange,
   setCard,
+  setId,
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

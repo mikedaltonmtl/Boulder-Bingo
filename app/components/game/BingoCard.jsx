@@ -20,8 +20,8 @@ export default function BingoCard() {
     <>
       {hydrated && <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          {card.map((challenge, index) => (
-            <Grid item key={index} xs={3}>
+          {card.map(challenge => (
+            <Grid item key={challenge.id} xs={3}>
               <Challenge info={challenge} />
             </Grid>
           ))}
