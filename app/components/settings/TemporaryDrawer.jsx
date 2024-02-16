@@ -15,7 +15,7 @@ export default function TemporaryDrawer({ state, toggleDrawer }) {
       open={state.left}
       onClose={toggleDrawer("left", false)}
     >
-      <Stepper />
+      <Stepper step={0} />
       <ListItems />
       <Box textAlign="center" >
         <Button

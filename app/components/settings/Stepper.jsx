@@ -6,10 +6,10 @@ import StepLabel from '@mui/material/StepLabel';
 
 const steps = ['Select Challenges', 'Go Climb!'];
 
-export default function Stepper() {
+export default function Stepper({ step }) {
   return (
     <Box sx={{ width: '95%', my: 2, mx: 1 }}>
-      <MuiStepper activeStep={0}>
+      <MuiStepper activeStep={step}>
         {steps.map(label => {
           const stepProps = {};
           const labelProps = {};

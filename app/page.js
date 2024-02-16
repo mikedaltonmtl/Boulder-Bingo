@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import BingoCard from './components/game/BingoCard';
+import Stepper from './components/settings/Stepper';
 
 import { useDispatch} from 'react-redux';
 import { setCard } from '@/redux/features/setting-slice';
@@ -29,7 +30,7 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <Typography variant="h5" gutterBottom>boulder bingo</Typography>
+      <Stepper step={1} />
       <Button variant="outlined" onClick={toggleDrawer("left", true)}>settings</Button>
       <Button variant="outlined" onClick={toggleDrawer("left", false)}>refresh</Button>
       <BingoCard/>
