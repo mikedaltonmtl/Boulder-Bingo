@@ -14,6 +14,7 @@ import { setCard, restartCard } from '@/redux/features/setting-slice';
 
 export default function Home() {
   const [state, setState] = React.useState({ left: true });
+  const [isReset, setIsReset] = React.useState(false);
   const card = useSelector(state => state.settingsReducer.value.card);
 
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Home() {
     console.log('resetCard', resetCard);
     console.log('spread resetCard', [...resetCard]);
     dispatch(restartCard([...resetCard]));
+    setIsReset(true);
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -41,7 +43,7 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Stepper step={1} />
-      <BingoCard card={card} sx={{ height: "800px" }}/>
+      <BingoCard card={card} isReset={isReset} setIsReset={setIsReset} sx={{ height: "800px" }}/>
       <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
       <Box sx={{ height: "80px" }}>{' '}</Box>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>

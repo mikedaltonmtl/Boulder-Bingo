@@ -19,7 +19,7 @@ export default function NavBar({ toggleDrawer, handleReset }) {
       >
         <BottomNavigationAction onClick={toggleDrawer("left", true)} label="Settings" icon={<SettingsIcon />} />
         <BottomNavigationAction onClick={toggleDrawer("left", false)} label="Shuffle" icon={<AutorenewIcon />} />
-        {/* <BottomNavigationAction onClick={handleReset} label="Restart" icon={<SettingsBackupRestoreIcon />} /> */}
+        <BottomNavigationAction onClick={handleReset} label="Restart" icon={<SettingsBackupRestoreIcon />} />
       </BottomNavigation>
     </Paper>
   );

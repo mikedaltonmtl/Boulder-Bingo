@@ -5,8 +5,18 @@ import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
 
-export default function Challenge({ info }) {
+export default function Challenge({ info, isReset, setIsReset }) {
   const [isComplete, setIsComplete] = React.useState(info.type === 'empty' || info.isComplete);
+
+  // Force the card to re-render when user restarts
+  React.useEffect(() => {
+    if (isReset) {
+      setIsReset(false);
+    }
+    if (info.type !== 'empty') {
+      setIsComplete(false);
+    }
+  }, [isReset, setIsReset, info.type]);
 
   const handleClick = () => {
     if (info.type !== 'empty') {
