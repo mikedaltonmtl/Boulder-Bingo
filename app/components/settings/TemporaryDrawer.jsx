@@ -2,10 +2,13 @@
 import * as React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Container from "@mui/material/Container";
+import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
+
 import ListItems from './ListItems';
 import Stepper from './Stepper';
-import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
-import Box from '@mui/material/Box';
+
 
 export default function TemporaryDrawer({ state, toggleDrawer }) {
   return (
@@ -15,17 +18,22 @@ export default function TemporaryDrawer({ state, toggleDrawer }) {
       open={state.left}
       onClose={toggleDrawer("left", false)}
     >
-      <Stepper step={0} />
-      <ListItems />
-      <Box textAlign="center" >
-        <Button
-          variant="contained"
-          endIcon={<NorthEastOutlinedIcon />}
-          onClick={toggleDrawer("left", false)}
-        >
+      <Container
+        maxWidth="lg"
+        sx={{ bgcolor: 'background.paper' }}
+      >
+        <Stepper step={0} />
+        <ListItems />
+        <Box textAlign="center" sx={{ mb: 4 }} >
+          <Button
+            variant="contained"
+            endIcon={<NorthEastOutlinedIcon />}
+            onClick={toggleDrawer("left", false)}
+          >
           Let&apos;s Go!
-        </Button>
-      </Box>
+          </Button>
+        </Box>
+      </Container>
     </Drawer>
   );
 }

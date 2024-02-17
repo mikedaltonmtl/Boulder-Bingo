@@ -7,8 +7,8 @@ import Challenge from './Challenge';
 
 export default function BingoCard({ card }) {
   return (
-    <Box sx={{ flexGrow: 1, mt:4 }}>
-      <Grid container spacing={2}>
+    <Box sx={{ flexGrow: 1, mt:3 }}>
+      <Grid container spacing={1}>
         {card.map(challenge => (
           <Grid item key={challenge.id} xs={3}>
             <Challenge info={challenge} />

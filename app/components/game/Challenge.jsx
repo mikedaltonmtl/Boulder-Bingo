@@ -20,11 +20,10 @@ export default function Challenge({ info }) {
     flexDirection: 'column',
     justifyContent: 'start',
     alignItems: 'start',
-    position: 'relative', // Add for X positioning
+    position: 'relative', // Added for X positioning
   };
   
   const getIcon = () => {
-
     const firstWord = info.content.split(' ')[0];
     const iconColor = firstWord.toLowerCase() === 'white' ? 'black' : firstWord.toLowerCase();
 
@@ -43,7 +42,12 @@ export default function Challenge({ info }) {
   };
 
   return (
-    <Card sx={{ height: '100%', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
+    <Card sx={{
+      height: '100%',
+      boxShadow: 2,
+      position: 'relative',
+      backgroundColor: '#f5f5f5',
+    }}>
       { info.type !== 'empty' && (
         <CardActionArea onClick={handleClick} style={cardStyle}>
           <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>
@@ -64,9 +68,9 @@ export default function Challenge({ info }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 150, // Adjust X size as needed
+              fontSize: 100, // Adjust X size as needed
               fontWeight: 'bold',
-              color: 'red',
+              color: '#ef5350',
               opacity: isComplete ? 1 : 0,
               transition: 'opacity 1s ease',
             }}

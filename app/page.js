@@ -1,11 +1,12 @@
 'use client';
 import * as React from 'react';
-import TemporaryDrawer from './components/settings/TemporaryDrawer';
 import Container from "@mui/material/Container";
+import Box from '@mui/material/Box';
 
-import BingoCard from './components/game/BingoCard';
 import Stepper from './components/settings/Stepper';
+import BingoCard from './components/game/BingoCard';
 import NavBar from './components/game/NavBar';
+import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import { useSelector, useDispatch} from 'react-redux';
 import { setCard, restartCard } from '@/redux/features/setting-slice';
@@ -20,6 +21,8 @@ export default function Home() {
     const cardCopy = [...card];
     // Reset all tasks 'isComplete' value to false, except for empties
     const resetCard = cardCopy.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
+    console.log('resetCard', resetCard);
+    console.log('spread resetCard', [...resetCard]);
     dispatch(restartCard([...resetCard]));
   };
 
@@ -38,8 +41,9 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Stepper step={1} />
-      <BingoCard card={card}/>
+      <BingoCard card={card} sx={{ height: "800px" }}/>
       <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
+      <Box sx={{ height: "80px" }}>{' '}</Box>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
     </Container>
   );
