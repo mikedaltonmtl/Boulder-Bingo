@@ -17,11 +17,6 @@ const setEmptiesArray = function(nbTasks) {
   return [];
 };
 
-// Reset all tasks 'isComplete' value to false, except for empties
-const reinitializeCard = function(cardArray) {
-  return cardArray.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
-};
-
 /**
  * We need to return an array containing the number of tasks demanded,
  * plus any empty tasks to ensure that the card is square.
@@ -59,7 +54,7 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange, l
     for (let i = 0; i < 5; i++) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
       const climbName = convertValueToLabel(difficulty);
-      const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
+      const climbContent = difficulty === 1 ? `${climbName} climb` : `C${climbName} climb`; // adjust for 'intro'
       taskArray.push({ content: climbContent, type: 'climb', isComplete: false });
     }
   // else fill the remaining tasks with climbs
@@ -67,7 +62,7 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange, l
     while (taskArray.length < nbTasks) {
       const difficulty = randomInteger(climbRange[0], climbRange[1]);
       const climbName = convertValueToLabel(difficulty);
-      const climbContent = difficulty === 1 ? climbName : `C${climbName}`;
+      const climbContent = difficulty === 1 ? `${climbName} climb` : `C${climbName} climb`; // adjust for 'intro'
       taskArray.push({ content: climbContent, type: 'climb', isComplete: false });
     }
   }
@@ -95,4 +90,4 @@ const setCardArray = function(nbTasks, colours, intros, exercises, climbRange, l
   return cardArray;
 };
 
-module.exports = { setCardArray, reinitializeCard };
+module.exports = { setCardArray };

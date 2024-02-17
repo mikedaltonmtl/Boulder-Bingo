@@ -5,8 +5,15 @@ import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
 
-export default function Challenge({ info, isReset, setIsReset }) {
+export default function Challenge({ info, isReset, setIsReset, isBingo, checkBingo }) {
   const [isComplete, setIsComplete] = React.useState(info.type === 'empty' || info.isComplete);
+  const [goBingo, setGoBingo] = React.useState(isBingo);
+
+  // Listener for Bingo
+  React.useEffect(() => {
+    setGoBingo(isBingo);
+    console.log('just set goBingo to', isBingo);
+  }, [isBingo]);
 
   // Force the card to re-render when user restarts
   React.useEffect(() => {
@@ -20,6 +27,7 @@ export default function Challenge({ info, isReset, setIsReset }) {
 
   const handleClick = () => {
     if (info.type !== 'empty') {
+      checkBingo(info.id, !isComplete);
       setIsComplete(!isComplete);
     }
   };
@@ -67,6 +75,9 @@ export default function Challenge({ info, isReset, setIsReset }) {
             <Typography variant="body2">
               {info.content}
             </Typography>
+            { goBingo && (
+              <p>Bingo!</p>
+            )}
           </CardContent>
           <Box
             sx={{

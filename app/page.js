@@ -9,22 +9,31 @@ import NavBar from './components/game/NavBar';
 import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import { useSelector, useDispatch} from 'react-redux';
-import { setCard, restartCard } from '@/redux/features/setting-slice';
+import { setCard, updateCard } from '@/redux/features/setting-slice';
 
 
 export default function Home() {
   const [state, setState] = React.useState({ left: true });
   const [isReset, setIsReset] = React.useState(false);
+  const [isBingo, setIsBingo] = React.useState(false);
   const card = useSelector(state => state.settingsReducer.value.card);
-
   const dispatch = useDispatch();
+
+  const checkBingo = function(id, setComplete) {
+    const checkCard = card.map(task => {
+      if (task.id === id) {
+        return { ...task, isComplete: setComplete };
+      }
+      return task;
+    });
+    dispatch(updateCard(checkCard));
+    setIsBingo(checkCard.every(task => task.isComplete === true));
+  };
+
   const handleReset = function() {
-    const cardCopy = [...card];
     // Reset all tasks 'isComplete' value to false, except for empties
-    const resetCard = cardCopy.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
-    console.log('resetCard', resetCard);
-    console.log('spread resetCard', [...resetCard]);
-    dispatch(restartCard([...resetCard]));
+    const resetCard = card.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
+    dispatch(updateCard(resetCard));
     setIsReset(true);
   };
 
@@ -43,7 +52,14 @@ export default function Home() {
   return (
     <Container maxWidth="lg">
       <Stepper step={1} />
-      <BingoCard card={card} isReset={isReset} setIsReset={setIsReset} sx={{ height: "800px" }}/>
+      <BingoCard
+        sx={{ height: "800px" }}
+        card={card}
+        isReset={isReset}
+        setIsReset={setIsReset}
+        isBingo={isBingo}
+        checkBingo={checkBingo}
+      />
       <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
       <Box sx={{ height: "80px" }}>{' '}</Box>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
