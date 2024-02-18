@@ -45,30 +45,30 @@ export default function Splash({ openSplash, setOpenSplash }) {
         <Typography variant="body2" gutterBottom>
           An app that generates
           <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}bingo cards{' '}</Typography>
-          to make your
+          that make
           <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}bouldering{' '}</Typography>
-          experience even more fun!
+          even more fun!
         </Typography>
-        <Typography variant="subtitle1" sx={{ color: '#9c27b0' }} gutterBottom>
+        <Typography variant="subtitle1" mt={2} sx={{ color: '#9c27b0' }} gutterBottom>
             How to play
         </Typography>
         <Typography variant="body2">
           Start by choosing how many
           <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}challenges{' '}</Typography>
-          you want to complete, then decide which
+          you want to try, then decide which
           <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}types{' '}</Typography>
-          of challenge you want to face.
+          of challenge you dare to face.
         </Typography>
         <Typography variant="body2">
-          You can include climbs by
+          You can include climbs by their
           <Typography variant="body2" component="span" sx={{ color: '#03a9f4' }}>{' '}colour</Typography>
           , to climb all the
           <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}intro runs</Typography>
-          , the
+          , climbs by
           <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}difficulty{' '}</Typography>
-          of your climbs and even add
+          and even
           <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}exercises</Typography>
-          !
+          .
         </Typography>
         <Typography variant="body2">
           The challenges you choose will be added
