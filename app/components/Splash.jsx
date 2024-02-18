@@ -45,7 +45,7 @@ export default function Splash({ openSplash, setOpenSplash }) {
         <Typography variant="body2" gutterBottom>
           An app that generates
           <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}bingo cards{' '}</Typography>
-          that make
+          to make
           <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}bouldering{' '}</Typography>
           even more fun!
         </Typography>

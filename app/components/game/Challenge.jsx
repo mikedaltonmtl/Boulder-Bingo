@@ -70,10 +70,10 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
       { goBingo
         ?
         <Zoom in={goBingo} style={{ transitionDelay: `${showIfBingo.delay}` }}>
-          <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, backgroundColor: '#42a5f5' }}>
+          <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, backgroundColor: showIfBingo.background ? '#42a5f5' : '#f5f5f5' }}>
             <CardActionArea onClick={handleClick} sx={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <CardContent>
-                <Box sx={{ fontSize: 50, fontWeight: 'bold', color: 'black', width: '100%' }}>
+                <Box sx={{ fontSize: 50, fontWeight: 'bold', color: '#f5f5f5', width: '100%' }}>
                   {showIfBingo.letter}
                 </Box>
               </CardContent>
@@ -81,44 +81,44 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
           </Card>
         </Zoom>
         :
-        <Zoom in={!goBingo} style={{ transitionDelay: `${showIfBingo.delay}` }}>
-          <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
-            { info.type !== 'empty' && (
-              <CardActionArea onClick={handleClick} style={cardStyle}>
-                <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>
-                  <Box mb={1} sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    {getIcon()}
-                    <Typography variant="body1" component="span">
-                      {info.type === 'exercise' && info.content.split(' ')[0]}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2">
-                    {info.type === 'exercise' ? info.content.split(' ').slice(1).join(' ') : info.content}
+        // <Zoom in={!goBingo} style={{ transitionDelay: `${showIfBingo.delay}` }}>
+        <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
+          { info.type !== 'empty' && (
+            <CardActionArea onClick={handleClick} style={cardStyle}>
+              <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>
+                <Box mb={1} sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                  {getIcon()}
+                  <Typography variant="body1" component="span">
+                    {info.type === 'exercise' && info.content.split(' ')[0]}
                   </Typography>
-                </CardContent>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 100,
-                    fontWeight: 'bold',
-                    color: '#ef5350',
-                    opacity: isComplete ? 1 : 0,
-                    transition: 'opacity 1s ease',
-                  }}
-                >
-                  X
                 </Box>
-              </CardActionArea>
-            )}
-          </Card>
-        </Zoom>
+                <Typography variant="body2">
+                  {info.type === 'exercise' ? info.content.split(' ').slice(1).join(' ') : info.content}
+                </Typography>
+              </CardContent>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 100,
+                  fontWeight: 'bold',
+                  color: '#ef5350',
+                  opacity: isComplete ? 1 : 0,
+                  transition: 'opacity 1s ease',
+                }}
+              >
+                  X
+              </Box>
+            </CardActionArea>
+          )}
+        </Card>
+        // </Zoom>
       }
     </>
   );

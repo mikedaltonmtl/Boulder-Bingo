@@ -5,22 +5,22 @@ import Grid from '@mui/material/Grid';
 import Challenge from './Challenge';
 
 const completedCards = [
-  { letter: 'B', delay: '100ms' },
-  { letter: 'O', delay: '200ms' },
-  { letter: 'U', delay: '300ms' },
-  { letter: 'L', delay: '400ms' },
-  { letter: 'D', delay: '500ms' },
-  { letter: 'E', delay: '600ms' },
-  { letter: 'R', delay: '700ms' },
-  { letter: '-', delay: '800ms' },
-  { letter: 'B', delay: '900ms' },
-  { letter: 'I', delay: '1000ms' },
-  { letter: 'N', delay: '1100ms' },
-  { letter: '-', delay: '1200ms' },
-  { letter: 'G', delay: '1300ms' },
-  { letter: 'O', delay: '1400ms' },
-  { letter: '!', delay: '1500ms' },
-  { letter: ':D', delay: '1600ms' },
+  { letter: 'B', delay: '100ms', background: true },
+  { letter: 'O', delay: '200ms', background: true },
+  { letter: 'U', delay: '300ms', background: true },
+  { letter: 'L', delay: '400ms', background: true },
+  { letter: 'D', delay: '500ms', background: true },
+  { letter: 'E', delay: '600ms', background: true },
+  { letter: 'R', delay: '700ms', background: true },
+  { letter: ' ', delay: '800ms', background: false },
+  { letter: ' ', delay: '900ms', background: false },
+  { letter: 'B', delay: '1000ms', background: true },
+  { letter: 'I', delay: '1100ms', background: true },
+  { letter: 'N', delay: '1200ms', background: true },
+  { letter: 'G', delay: '1300ms', background: true },
+  { letter: 'O', delay: '1400ms', background: true },
+  { letter: '!', delay: '1500ms', background: true },
+  { letter: ' ', delay: '1600ms', background: false },
 ];
 
 export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBingo }) {
