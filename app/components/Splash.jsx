@@ -2,7 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
+import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 
 const style = {
   position: 'absolute',
@@ -52,33 +54,42 @@ export default function Splash({ openSplash, setOpenSplash }) {
         <Typography variant="subtitle1" mt={2} sx={{ color: '#9c27b0' }} gutterBottom>
             How to play
         </Typography>
-        <Typography variant="body2">
-          Start by choosing how many
+        <Typography variant="body2" gutterBottom>
+          Choose how many
           <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}challenges{' '}</Typography>
-          you want to try, then decide which
+          to attempt, then select which
           <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}types{' '}</Typography>
-          of challenge you dare to face.
+          to face.
         </Typography>
-        <Typography variant="body2">
-          You can include climbs by their
+        <Typography variant="body2" gutterBottom>
+          Include routes by
           <Typography variant="body2" component="span" sx={{ color: '#03a9f4' }}>{' '}colour</Typography>
-          , to climb all the
+          , climb the
           <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}intro runs</Typography>
-          , climbs by
-          <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}difficulty{' '}</Typography>
-          and even
+          , choose by
+          <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}difficulty</Typography>
+          , even add
           <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}exercises</Typography>
           .
         </Typography>
         <Typography variant="body2">
-          The challenges you choose will be added
+          Challenges are added
           <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}randomly{' '}</Typography>
-          to your
+          to the
           <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}bingo card</Typography>
-          , if you don&apos;t like the way it looks, just hit
+          . Don&apos;t like the way it looks? Just hit
           <Typography variant="body2" component="span" sx={{ color: '#03a9f4' }}>{' '}shuffle</Typography>
           .
         </Typography>
+        <Box textAlign="center" sx={{ mt: 2 }} >
+          <Button
+            variant="outlined"
+            endIcon={<NorthEastOutlinedIcon />}
+            onClick={() => setOpenSplash(false)}
+          >
+          Start
+          </Button>
+        </Box>
       </Box>
     </Modal>
   );
