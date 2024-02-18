@@ -3,6 +3,7 @@ import * as React from 'react';
 import Container from "@mui/material/Container";
 import Box from '@mui/material/Box';
 
+import Splash from './components/Splash';
 import BingoCard from './components/game/BingoCard';
 import NavBar from './components/game/NavBar';
 import TemporaryDrawer from './components/settings/TemporaryDrawer';
@@ -12,6 +13,7 @@ import { setCard, updateCard } from '@/redux/features/setting-slice';
 
 
 export default function Home() {
+  const [openSplash, setOpenSplash] = React.useState(true);
   const [state, setState] = React.useState({ left: true });
   const [isReset, setIsReset] = React.useState(false);
   const [isBingo, setIsBingo] = React.useState(false);
@@ -30,7 +32,6 @@ export default function Home() {
   };
 
   const handleReset = function() {
-    // Reset all tasks 'isComplete' value to false, except for empties
     const resetCard = card.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
     dispatch(updateCard(resetCard));
     setIsReset(true);
@@ -52,6 +53,7 @@ export default function Home() {
 
   return (
     <Container maxWidth="lg">
+      <Splash openSplash={openSplash} setOpenSplash={setOpenSplash} />
       <BingoCard
         sx={{ height: "100%" }}
         card={card}
