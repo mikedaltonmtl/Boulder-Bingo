@@ -2,14 +2,14 @@ const exerciseArray = [
   { label: 'Pull-ups', name: 'pullUp'},
   { label: 'Push-ups', name: 'pushUp'},
   { label: 'Squats', name: 'squat'},
-  { label: 'Jumping jacks', name: 'jack'},
+  { label: 'Jumping Jacks', name: 'jack'},
 ];
 
 const exerciseConversions = {
   pullUp: '5 Pull-ups',
   pushUp: '10 Push-ups',
   squat: '15 Squats',
-  jack: '20 Jumping jacks'
+  jack: '20 Jumping Jacks'
 };
 
 const convertValueToLabel = function(value) {

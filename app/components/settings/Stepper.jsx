@@ -4,7 +4,7 @@ import MuiStepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 
-const steps = ['Select Challenges', 'Go Climb!'];
+const steps = ['Choose Challenges', 'Boulder!'];
 
 export default function Stepper({ step }) {
   return (

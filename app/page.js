@@ -3,7 +3,6 @@ import * as React from 'react';
 import Container from "@mui/material/Container";
 import Box from '@mui/material/Box';
 
-import Stepper from './components/settings/Stepper';
 import BingoCard from './components/game/BingoCard';
 import NavBar from './components/game/NavBar';
 import TemporaryDrawer from './components/settings/TemporaryDrawer';
@@ -35,6 +34,7 @@ export default function Home() {
     const resetCard = card.map(card => card.type === 'empty' ? card : { ...card, isComplete: false});
     dispatch(updateCard(resetCard));
     setIsReset(true);
+    setIsBingo(false);
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -43,6 +43,7 @@ export default function Home() {
     }
 
     setState({ ...state, [anchor]: open });
+    setIsBingo(false);
 
     if (!open) {
       dispatch(setCard());
@@ -51,9 +52,8 @@ export default function Home() {
 
   return (
     <Container maxWidth="lg">
-      <Stepper step={1} />
       <BingoCard
-        sx={{ height: "800px" }}
+        sx={{ height: "100%" }}
         card={card}
         isReset={isReset}
         setIsReset={setIsReset}
