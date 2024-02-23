@@ -38,12 +38,6 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
       setIsComplete(!isComplete);
     }
   };
-
-  const cardStyle = {
-    height: '100%',
-    display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start',
-    position: 'relative', // Added for X positioning
-  };
   
   const getIcon = () => {
     const firstWord = info.content.split(' ')[0];
@@ -68,9 +62,9 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
       { goBingo
         ?
         <motion.div
-          initial={{ opacity: 0.5, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.2, delay: index * 0.1 + 0.1, ease: "easeIn" }}
+          initial={{ opacity: 0.5, scale: 0, rotateZ: 180 }}
+          animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
+          transition={{ duration: 0.4, delay: index * 0.1 + 0.1, ease: "easeIn" }}
         >
           <Card sx={{
             height: '100%', minHeight: '100px',
@@ -94,7 +88,11 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
         <Zoom in={!goBingo} style={{ transitionDelay: `${showIfBingo.delay}` }}>
           <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
             { info.type !== 'empty' && (
-              <CardActionArea onClick={handleClick} style={cardStyle}>
+              <CardActionArea onClick={handleClick} sx={{
+                height: '100%',
+                display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start',
+                position: 'relative', // Added for X positioning
+              }}>
                 <CardContent sx={{ opacity: isComplete ? 0.2 : 1 }}>
                   <Box mb={1} sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     {getIcon()}
