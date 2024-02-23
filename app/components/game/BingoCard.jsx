@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Challenge from './Challenge';
 
@@ -24,6 +25,8 @@ const completedCards = [
 ];
 
 export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBingo }) {
+  // const isPrintMode = useMediaQuery('print'); // this works!!
+
   return (
     <Box sx={{ flexGrow: 1, mt:3 }}>
       <Grid container spacing={1}>
@@ -41,6 +44,19 @@ export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBin
           </Grid>
         ))}
       </Grid>
+      {/* <Box
+        sx={{
+        // Base styles for all modes
+          backgroundColor: 'lightblue',
+          padding: 2,
+          // Print-specific styles
+          display: isPrintMode ? 'none' : 'block',
+          width: isPrintMode ? '100%' : undefined,
+          margin: isPrintMode ? '0 auto' : undefined,
+        }}
+      >
+        Your content here
+      </Box> */}
     </Box>
   );
 }
