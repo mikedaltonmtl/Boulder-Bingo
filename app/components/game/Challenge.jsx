@@ -67,9 +67,9 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
           transition={{ duration: 0.4, delay: index * 0.1 + 0.1, ease: "easeIn" }}
         >
           <Card sx={{
-            height: '100%', minHeight: '100px',
+            height: '100%', minHeight: '100px', paddingX: '6px', paddingY: '3px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '2 #fff', paddingX: '6px', paddingY: '3px',
+            boxShadow: '2 #fff', borderRadius: 1,
             backgroundColor: showIfBingo.background ? '#42a5f5' : '#f5f5f5',
           }}>
             <CardActionArea onClick={handleClick} sx={{
@@ -108,11 +108,8 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
                   position: 'absolute',
                   top: 0, left: 0, right: 0, bottom: 0,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 100,
-                  fontWeight: 'bold',
-                  color: '#ef5350',
-                  opacity: isComplete ? 1 : 0,
-                  transition: 'opacity 1s ease',
+                  fontSize: 100, fontWeight: 'bold', color: '#ef5350',
+                  opacity: isComplete ? 1 : 0, transition: 'opacity 1s ease',
                 }}>
                   X
                 </Box>
