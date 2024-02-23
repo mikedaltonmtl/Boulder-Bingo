@@ -10,6 +10,7 @@ import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import { useSelector, useDispatch} from 'react-redux';
 import { setCard, updateCard } from '@/redux/features/setting-slice';
+import Test from './components/Test';
 
 
 export default function Home() {
@@ -52,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="sm">
       <Splash openSplash={openSplash} setOpenSplash={setOpenSplash} />
       <BingoCard
         sx={{ height: "100%" }}
@@ -63,8 +64,8 @@ export default function Home() {
         checkBingo={checkBingo}
       />
       <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
-      <Box sx={{ height: "80px" }}>{' '}</Box>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
+      {/* <Test /> */}
     </Container>
   );
 }

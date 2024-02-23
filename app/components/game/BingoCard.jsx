@@ -36,6 +36,7 @@ export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBin
               isBingo={isBingo}
               checkBingo={checkBingo}
               showIfBingo={completedCards[index]}
+              index={index}
             />
           </Grid>
         ))}
