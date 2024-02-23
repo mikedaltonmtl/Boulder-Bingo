@@ -1,7 +1,6 @@
 'use client';
 import * as React from 'react';
 import Container from "@mui/material/Container";
-import Box from '@mui/material/Box';
 
 import Splash from './components/Splash';
 import BingoCard from './components/game/BingoCard';
@@ -10,7 +9,6 @@ import TemporaryDrawer from './components/settings/TemporaryDrawer';
 
 import { useSelector, useDispatch} from 'react-redux';
 import { setCard, updateCard } from '@/redux/features/setting-slice';
-import Test from './components/Test';
 
 
 export default function Home() {
@@ -65,7 +63,6 @@ export default function Home() {
       />
       <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
-      {/* <Test /> */}
     </Container>
   );
 }

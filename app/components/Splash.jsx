@@ -7,16 +7,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import NorthEastOutlinedIcon from '@mui/icons-material/NorthEastOutlined';
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
+  position: 'absolute', top: '50%', left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '60%',
-  height: '75%',
+  height: '75%', width: '60%', maxWidth: '500px',
   bgcolor: 'background.paper',
-  border: '2px solid #42a5f5',
-  boxShadow: 24,
-  p: 4,
+  border: '2px solid #42a5f5', boxShadow: 24,
+  padding: 4,
 };
 
 export default function Splash({ openSplash, setOpenSplash }) {
@@ -72,7 +68,7 @@ export default function Splash({ openSplash, setOpenSplash }) {
           <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}exercises</Typography>
           .
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" gutterBottom>
           Challenges are added
           <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}randomly{' '}</Typography>
           to the
@@ -81,6 +77,32 @@ export default function Splash({ openSplash, setOpenSplash }) {
           <Typography variant="body2" component="span" sx={{ color: '#03a9f4' }}>{' '}shuffle</Typography>
           .
         </Typography>
+        <Box sx={{ marginBottom: 4, display: { xs: 'none', md: 'block' } }}>
+          <Typography variant="subtitle1" mt={2} sx={{ color: '#9c27b0' }} gutterBottom>
+            This is the printable version
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            You are propably viewing this page on a device larger than a phone.
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            Once you have chosen your
+            <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}settings{' '}</Typography>
+            and continued to the
+            <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}bingo card{' '}</Typography>
+            you will see a
+            <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}print{' '}</Typography>
+            button that is not visible on a phone resolution.
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            Click on the
+            <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}button{' '}</Typography>
+            to go to the
+            <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}print setup{' '}</Typography>
+            if you would like a
+            <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}physical bingo card</Typography>
+            .
+          </Typography>
+        </Box>
         <Box textAlign="center" sx={{ mt: 2 }} >
           <Button
             variant="outlined"
