@@ -82,25 +82,27 @@ export default function Splash({ openSplash, setOpenSplash }) {
             This is the printable version
           </Typography>
           <Typography variant="body2" gutterBottom>
-            You are propably viewing this page on a device larger than a phone.
+            You are propably viewing this
+            <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}app{' '}</Typography>
+            on a device larger than a phone.
           </Typography>
           <Typography variant="body2" gutterBottom>
-            Once you have chosen your
+            The good news is you can play
+            <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}Boulder Bingo{' '}</Typography>
+            in exactly the same way on a tablet or larger device.
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            However, if you would like to
+            <Typography variant="body2" component="span" sx={{ color: '#9c27b0' }}>{' '}print{' '}</Typography>
+            a
+            <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}physical bingo card</Typography>
+            , choose your
             <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}settings{' '}</Typography>
-            and continued to the
+            as normal and when you are happy with the
             <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}bingo card{' '}</Typography>
-            you will see a
-            <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}print{' '}</Typography>
-            button that is not visible on a phone resolution.
-          </Typography>
-          <Typography variant="body2" gutterBottom>
-            Click on the
-            <Typography variant="body2" component="span" sx={{ color: '#2e7d32' }}>{' '}button{' '}</Typography>
-            to go to the
-            <Typography variant="body2" component="span" sx={{ color: '#1976d2' }}>{' '}print setup{' '}</Typography>
-            if you would like a
-            <Typography variant="body2" component="span" sx={{ color: '#d32f2f' }}>{' '}physical bingo card</Typography>
-            .
+            , select
+            <Typography variant="body2" component="span" sx={{ color: '#ed6c02' }}>{' '}File {'>'} Print...{' '}</Typography>
+            in the browser.
           </Typography>
         </Box>
         <Box textAlign="center" sx={{ mt: 2 }} >

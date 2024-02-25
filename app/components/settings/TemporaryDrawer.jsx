@@ -19,7 +19,7 @@ export default function TemporaryDrawer({ state, toggleDrawer }) {
       onClose={toggleDrawer("left", false)}
     >
       <Container
-        maxWidth="lg"
+        maxWidth="sm"
         sx={{ bgcolor: 'background.paper' }}
       >
         <Stepper step={0} />

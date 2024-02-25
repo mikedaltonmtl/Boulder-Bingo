@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Challenge from './Challenge';
 
@@ -25,11 +26,16 @@ const completedCards = [
 ];
 
 export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBingo }) {
-  // const isPrintMode = useMediaQuery('print'); // this works!!
+  const isPrintMode = useMediaQuery('print');
 
   return (
     <Box sx={{ flexGrow: 1, mt:3 }}>
-      <Grid container spacing={1}>
+      {isPrintMode &&
+        <Typography variant="h3" gutterBottom>
+          Boulder Bingo
+        </Typography>
+      }
+      <Grid container spacing={ isPrintMode ? 0 : 1 }>
         {card.map((challenge, index) => (
           <Grid item key={challenge.id} xs={3}>
             <Challenge

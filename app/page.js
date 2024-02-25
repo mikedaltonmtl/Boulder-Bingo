@@ -1,6 +1,8 @@
 'use client';
 import * as React from 'react';
 import Container from "@mui/material/Container";
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 import Splash from './components/Splash';
 import BingoCard from './components/game/BingoCard';
@@ -18,6 +20,7 @@ export default function Home() {
   const [isBingo, setIsBingo] = React.useState(false);
   const card = useSelector(state => state.settingsReducer.value.card);
   const dispatch = useDispatch();
+  const isPrintMode = useMediaQuery('print');
 
   const checkBingo = function(id, setComplete) {
     const checkCard = card.map(task => {
@@ -61,7 +64,9 @@ export default function Home() {
         isBingo={isBingo}
         checkBingo={checkBingo}
       />
-      <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
+      {!isPrintMode &&
+        <NavBar toggleDrawer={toggleDrawer} handleReset={handleReset}/>
+      }
       <TemporaryDrawer state={state} toggleDrawer={toggleDrawer}/>
     </Container>
   );
