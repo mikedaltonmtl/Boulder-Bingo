@@ -7,13 +7,16 @@ import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
 import Box from '@mui/material/Box';
 import Zoom from '@mui/material/Zoom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import YardOutlinedIcon from '@mui/icons-material/YardOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
 
+
 export default function Challenge({ info, isReset, setIsReset, isBingo, checkBingo, showIfBingo, index }) {
+  const isPrintMode = useMediaQuery('print');
   const [isComplete, setIsComplete] = React.useState(info.type === 'empty' || info.isComplete);
   const [goBingo, setGoBingo] = React.useState(isBingo);
 
@@ -86,7 +89,13 @@ export default function Challenge({ info, isReset, setIsReset, isBingo, checkBin
         </motion.div>
         :
         <Zoom in={!goBingo} style={{ transitionDelay: `${showIfBingo.delay}` }}>
-          <Card sx={{ height: '100%', minHeight: '100px', boxShadow: 2, position: 'relative', backgroundColor: '#f5f5f5' }}>
+          <Card sx={{
+            height: '100%', minHeight: '100px', position: 'relative',
+            boxShadow: isPrintMode ? 0 : 2,
+            backgroundColor: isPrintMode ? 'none' : '#f5f5f5',
+            border: isPrintMode ? '1px solid black' : 'none',
+            borderRadius: isPrintMode && 0,
+          }}>
             { info.type !== 'empty' && (
               <CardActionArea onClick={handleClick} sx={{
                 height: '100%',

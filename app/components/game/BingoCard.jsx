@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Challenge from './Challenge';
@@ -50,19 +51,6 @@ export default function BingoCard({ card, isReset, setIsReset, isBingo, checkBin
           </Grid>
         ))}
       </Grid>
-      {/* <Box
-        sx={{
-        // Base styles for all modes
-          backgroundColor: 'lightblue',
-          padding: 2,
-          // Print-specific styles
-          display: isPrintMode ? 'none' : 'block',
-          width: isPrintMode ? '100%' : undefined,
-          margin: isPrintMode ? '0 auto' : undefined,
-        }}
-      >
-        Your content here
-      </Box> */}
     </Box>
   );
 }
