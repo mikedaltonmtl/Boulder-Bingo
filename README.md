@@ -4,6 +4,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
+      <a href="#screenshot">Screenshot</a>
+    </li>
+    <li>
       <a href="#about">About</a>
     </li>
     <li>
@@ -11,9 +14,6 @@
     </li>
     <li>
       <a href="#tech-stack">Tech Stack</a>
-    </li>
-    <li>
-      <a href="#screenshots">Screenshots</a>
     </li>
     <li>
     <a href="#setup">Setup</a>
@@ -29,6 +29,8 @@
     </li>
   </ol>
 </details>
+
+## Screenshot
 
 ![boulder](https://github.com/mikedaltonmtl/Boulder-Bingo/assets/109972253/ff2d8777-c260-4caf-8934-faa922e312e7)
 
@@ -46,13 +48,29 @@ If your kids climb, or maybe you do (the difficulty of the challenges is customi
 
 ## How To Play
 
-Choose how many challenges to attempt, then select which types to face.
-Include routes by colour, climb the intro runs, choose by difficulty, even add exercises.
+Once you've hit the `START` button to close the splash screen, you'll be taken to the `SETTINGS` page.
 
-Challenges are added randomly to the bingo card. Don&apos;t like the way it looks? Just hit shuffle.
+Here you can customize your Bingo card:
 
+- `Challenges`: Choose how many challenges you'd like to be added to the card, 8, 12 or 16.
+- `Colours`: Use the toggles to add routes by their colour.
+- `Climb all the Intros`: Include a challenge to complete each of the intro runs.
+- `Exercises`: Choose some exercises to do between climbs.
+- `Difficulty`: Use the slider to select the range of difficulty for the climbs that will appear on your card.
+
+The challenges are added randomly to the bingo card. For example, if you've chosen a card with 8 challenges and included all 11 elements in addition to a range of difficulty; 5 climbs from the difficulty range will be created, then 8 of the 16 elements will be randomly picked for the bingo card.
+
+When you tap the `LET'S GO` button at the bottom of the `SETTINGS` page, the app will create a bingo card for you.
+
+Underneath the bingo card is a menu with three buttons:
+- `Settings`: Returns you to the settings page to redefine your challenges. Any progress made on the bingo card will be lost.
+- `Shuffle`: Resets the bingo card with newly randomized challenges.
+- `Restart`: Unchecks any squares on the card that have been checked off.
+
+Once the card is complete (Well Done!), you'll see a Bingo animation. If you'd like to play again, use the menu at the bottom of the page to decide how.
 
 ## Dependencies
+
 - Next
 - Material-UI
 - Redux Toolkit
