@@ -90,3 +90,36 @@ Open [http://localhost:3000](http://localhost:3000) with your browser and go cli
 
 ## Project Directory
 
+boulder-bingo
+├──  app
+│   ├── components
+│   │   ├── game
+│   │   │   ├── BingoCard.jsx
+│   │   │   ├── Challenge.jsx
+│   │   │   └── NavBar.jsx
+│   │   └── settings
+│   │   │   ├── Items.jsx
+│   │   │   │   ├── Challenges.jsx
+│   │   │   │   ├── Climbs.jsx
+│   │   │   │   ├── Colours.jsx
+│   │   │   │   ├── ColourSwitches.jsx
+│   │   │   │   ├── Exercises.jsx
+│   │   │   │   └── Intros.jsx
+│   │   │   ├── ListItems.jsx
+│   │   │   ├── Stepper.jsx
+│   │   │   └── TemporaryDrawer.jsx
+│   │   └── Splash.jsx
+│   ├── helpers
+│   │   ├── conversions.js
+│   │   └── setCardArray.js
+│   ├── theme
+│   │   └── theme.js
+│   ├── globals.css
+│   ├── layout.js
+│   ├── page.js
+│   └── page.module.css
+└── redux
+    ├── features
+    │   └── setting-slice.js
+    ├── provider.jsx
+    └── store.js
