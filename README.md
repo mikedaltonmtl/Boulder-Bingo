@@ -1,4 +1,4 @@
-## Boulder Bingo
+# Boulder Bingo
 
 <details>
   <summary>Table of Contents</summary>
