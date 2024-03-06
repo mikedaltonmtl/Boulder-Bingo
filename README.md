@@ -90,6 +90,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser and go cli
 
 ## Project Directory
 
+```
 boulder-bingo
 ├──  app
 │   ├── components
@@ -123,3 +124,4 @@ boulder-bingo
     │   └── setting-slice.js
     ├── provider.jsx
     └── store.js
+```
