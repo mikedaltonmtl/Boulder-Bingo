@@ -30,13 +30,17 @@
   </ol>
 </details>
 
+![boulder](https://github.com/mikedaltonmtl/Boulder-Bingo/assets/109972253/ff2d8777-c260-4caf-8934-faa922e312e7)
+
 ## About
 
 My son and youngest daughter have joined a bouldering club. We've been going regularly for the past few months, and they've been improving steadily.
-However, the other week they were lacking motivation... until they were given Bingo cards.
-What a difference it made! Immediately, they were racing to check off the challenges just to be the first to shout 'House!'. The other climbers may have looked at us as though we were a little crazy, but it was a lot of fun.
 
-In the interest of keeping them motivated to climb, getting me motivated to learn Material-UI, and saving some trees along the way, I decided to build a little phone app to create on-line bingo cards.
+However, the other week they were lacking motivation... until they were given Bingo cards.
+
+What a difference it made! Immediately, they were racing to check off their challenges, just to be the first to shout 'House!'. The other climbers may have looked at us as though we were a little crazy, but it was a lot of fun.
+
+In the interest of keeping them motivated to climb, getting me motivated to practice using Material-UI, and saving some trees along the way, I decided to build a little phone app to create on-line bingo cards.
 
 If your kids climb, or maybe you do (the difficulty of the challenges is customizable), you can give it a try at [boulderbingo.vercel.app](https://boulderbingo.vercel.app/).
 
