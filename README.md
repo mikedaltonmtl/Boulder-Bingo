@@ -1,5 +1,38 @@
 ## Boulder Bingo
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about">About</a>
+    </li>
+    <li>
+      <a href="#how-it-works">How It Works</a>
+    </li>
+    <li>
+      <a href="#tech-stack">Tech Stack</a>
+    </li>
+    <li>
+      <a href="#screenshots">Screenshots</a>
+    </li>
+    <li>
+    <a href="#setup">Setup</a>
+    </li>
+    <li>
+    <a href="#dependencies">Dependencies</a>
+    </li>
+    <li>
+    <a href="#project-directory-structure">Project Directory</a>
+    </li>
+    <li>
+    <a href="#contributors">Contributors</a>
+    </li>
+  </ol>
+</details>
+
+## About
+
+dfgfdkgjhfdkgh
 
 ## Dependencies
 - Next
