@@ -7,7 +7,7 @@
       <a href="#about">About</a>
     </li>
     <li>
-      <a href="#how-it-works">How It Works</a>
+      <a href="#how-to-play">How To Play</a>
     </li>
     <li>
       <a href="#tech-stack">Tech Stack</a>
@@ -39,6 +39,14 @@ What a difference it made! Checking off the challenges to be the first to shout 
 In the interest of keeping them motivated to climb, keeping me motivated to learn Material-UI, and saving some trees along the way, I decided to build a little phone app to create on-line bingo cards.
 
 If your kids climb, or maybe you do (the difficulty of the challenges is customizable), you can give it a try at [boulderbingo.vercel.app](https://boulderbingo.vercel.app/).
+
+## How To Play
+
+Choose how many challenges to attempt, then select which types to face.
+Include routes by colour, climb the intro runs, choose by difficulty, even add exercises.
+
+Challenges are added randomly to the bingo card. Don&apos;t like the way it looks? Just hit shuffle.
+
 
 ## Dependencies
 - Next
